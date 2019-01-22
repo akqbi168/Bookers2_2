@@ -1,69 +1,73 @@
-<h1>Index</h1>
+<section class="container">
 
-<br>
-<br>
-ここには簡易的なUser info<br>
-写真、名前、説明<br>
-ユーザーの編集ボタン<br>
-<br>
-新規投稿New book<br>
-タイトルフォーム<br>
-オピニオンフォーム<br>
-投稿ボタン<br>
-<br>
-そしてBooksの一覧を右側に<br>
-<br>
-表示する<br>
+  <h1>Index</h1>
 
-<div class="container">
-  <div class="row">
-    <div class="col-3">
+  <br>
+  <br>
+  ここには簡易的なUser info<br>
+  写真、名前、説明<br>
+  ユーザーの編集ボタン<br>
+  <br>
+  新規投稿New book<br>
+  タイトルフォーム<br>
+  オピニオンフォーム<br>
+  投稿ボタン<br>
+  <br>
+  そしてBooksの一覧を右側に<br>
+  <br>
+  表示する<br>
 
-      <%= render 'books/newform', books: @books %>
-
-    </div>
-  </div>
-</div>
-
-
-<div class="profile-container">
-    <h3 class="profile-name"><%= @user.name %></h3>
-    <%= attachment_image_tag @user, :profile_image, :fill, 100, 100, format: 'jpeg', class: "img-circle pull-left profile-img", fallback: "no_image.jpg" %>
-    <% if @user.id == current_user.id %>
-        <p><%= link_to "プロフィール編集", edit_user_path(@user), class: "pull-right" %></p>
-    <% end %>
-</div>
-
-
-<section class="sct-color-1 slice">
-  <div class="container-fluid masonry-container">
+  <div class="container">
     <div class="row">
-      <div class="col-md-8 col-sm-offset-2">
-        <div class="masonry-wrapper-cols">
-          <div class="masonry-gutter"></div>
+      <div class="col-3">
 
-            <div class="masonry-block">
-              <div class="block block-image v1">
-                <div class="block-image">
-                  <div class="view view-first">
-                    <%= attachment_image_tag @book, :image %>
-                  </div>
-                </div>
-                <div class="block-content">
-                  <%= image_tag('sample-author1.jpg', class: "img-circle pull-left profile-thumb") %>
-                  <h3 class="block-title">
+        <%= render 'books/newform', books: @books %>
 
-
-
-                  </h3>
-
-
-                </div>
-              </div>
-            </div>
-
-        </div>
       </div>
     </div>
   </div>
+
+
+  <div class="profile-container">
+      <h3 class="profile-name"><%= @user.name %></h3>
+      <%= attachment_image_tag @user, :profile_image, :fill, 100, 100, format: 'jpeg', class: "img-circle pull-left profile-img", fallback: "no_image.jpg" %>
+      <% if @user.id == current_user.id %>
+          <p><%= link_to "プロフィール編集", edit_user_path(@user), class: "pull-right" %></p>
+      <% end %>
+  </div>
+
 </section>
+
+
+  <section class="sct-color-1 slice">
+    <div class="container-fluid masonry-container">
+      <div class="row">
+        <div class="col-md-8 col-sm-offset-2">
+          <div class="masonry-wrapper-cols">
+            <div class="masonry-gutter"></div>
+
+              <div class="masonry-block">
+                <div class="block block-image v1">
+                  <div class="block-image">
+                    <div class="view view-first">
+                      <%= attachment_image_tag @book, :image %>
+                    </div>
+                  </div>
+                  <div class="block-content">
+                    <%= image_tag('sample-author1.jpg', class: "img-circle pull-left profile-thumb") %>
+                    <h3 class="block-title">
+
+
+
+                    </h3>
+
+
+                  </div>
+                </div>
+              </div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
