@@ -1,0 +1,19 @@
+<div style="line-height:1.8em">
+  <%= form_for(@book) do |f| %>
+
+    <div class="field row">
+      <%= f.label :title, placeholder:"本のタイトル" %>
+      <%= f.text_field :title, class: "col-xs-12 book_title" %>
+    </div>
+
+    <div class="field row">
+      <%= f.label :opinion %>
+      <%= f.text_area :body, class: "col-xs-12 form-control book_body", rows:"2", placeholder:"感想を入力" %>
+    </div>
+
+    <div class="row" style="padding: 10px 0">
+      <%= f.submit class: "btn btn-primary col-xs-12" %>
+    </div>
+
+  <% end %>
+</div>

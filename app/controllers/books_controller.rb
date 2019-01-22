@@ -23,6 +23,7 @@ class BooksController < ApplicationController
     def index
         @user = current_user
         @books = Book.page(params[:page]).reverse_order
+        @book = Book.new
     end
 
     def show
@@ -38,7 +39,7 @@ class BooksController < ApplicationController
 
     private
         def book_params
-            params.require(:book).permit(:title, :body)
+            params.require(:book).permit(:title, :introduction, :body)
         end
 
 end
