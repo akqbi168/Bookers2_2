@@ -1,6 +1,19 @@
 <div class="container">
   <h2>User info</h2>
 
+      <% if @user.errors.any? %>
+      <div class="alert-danger">
+        <strong>
+          <p><%= @user.errors.count %> error: cannot be saved</p>
+          <ul>
+            <% @user.errors.full_messages.each do |message| %>
+            <li><%= message %></li>
+            <% end %>
+          </ul>
+        </strong>
+      </div>
+    <% end %>
+
   <%= form_for(@user) do |f| %>
 
     <div class="field">
@@ -19,7 +32,7 @@
     </div>
 
     <div class="actions">
-      <%= f.submit %>
+      <%= f.submit, class:"users" %>
     </div>
 
   <% end %>

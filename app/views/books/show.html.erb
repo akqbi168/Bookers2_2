@@ -6,7 +6,7 @@
       <%= render 'users/info', user: current_user %>
 
       <h2>New book</h2>
-      <%= render 'books/newbook', book: @book %>
+      <%= render 'books/newbook', book: @bookn %>
 
     </div>
 
@@ -23,7 +23,7 @@
             <% end %>
           </td>
           <td>
-            <%= link_to @book.title, @book %>
+            <%= link_to @book.title, @book, class: "book_#{@book.id}" %>
           </td>
           <td>
             <%= @book.body %>
@@ -34,7 +34,7 @@
             <%= link_to "Edit", edit_book_path(@book), class: "btn-sm btn-success edit_book_#{@book.id}" %>
           </td>
           <td>
-            <%= link_to "Destroy", book_path(@book), method: :delete, date: {confirm: "Are you sure you want to destroy this book?"}, class: "btn-sm btn-danger destroy_book_#{@book.id}" %>
+            <%= link_to "Destroy", @book, method: :delete, data: {confirm: "Are you sure you want to destroy this book?"}, class: "btn-sm btn-danger destroy_book_#{@book.id}" %>
           </td>
         <% end %>
         </tr>

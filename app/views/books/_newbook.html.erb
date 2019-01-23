@@ -1,5 +1,5 @@
 <div style="line-height:1.8em">
-  <%= form_for(@book) do |f| %>
+  <%= form_for(book) do |f| %>
 
     <div class="field row">
       <%= f.label :title, autocomplete: 'off', placeholder:"本のタイトル" %>
@@ -12,7 +12,7 @@
     </div>
 
     <div class="actions row" style="padding: 10px 0">
-      <%= f.submit class: "btn btn-primary col-xs-12" %>
+      <%= f.submit class:"btn btn-primary col-xs-12 books" %>
     </div>
 
   <% end %>

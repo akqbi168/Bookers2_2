@@ -1,4 +1,5 @@
 class BooksController < ApplicationController
+  before_action :authenticate_user!, only: [:edit, :update]
 
     def home
     end
@@ -34,10 +35,14 @@ class BooksController < ApplicationController
 
     def show
         @book = Book.find(params[:id])
+        @bookn = Book.new
     end
 
     def edit
         @book = Book.find(params[:id])
+        if @book.user_id != current_user.id
+            redirect_to book_path(@book)
+        end
         # @user = User.find(params[:id]) 不要
     end
 
@@ -63,4 +68,11 @@ class BooksController < ApplicationController
         def book_params
             params.require(:book).permit(:title, :introduction, :body)
         end
+
+        # def correct_user
+        #     book = Book.find(params[:id])
+        #     if current_user != @user
+        #     redirect_to user_path
+        # end
+
 end
