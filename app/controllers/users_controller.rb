@@ -2,8 +2,15 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find(params[:id])
-    @books = @user.books.page(params[:page]).reverse_order
-    @book = Book.find(params[:id])
+    @books = @user.books
+      # @books = @user.books.page(params[:page]).reverse_order だと逆順 (kaminari)
+    @book = Book.new
+    # @users = User.all 違うやつ
+  end
+
+  def index
+    @users = User.all
+    @book = Book.new
   end
 
   def edit
@@ -12,8 +19,12 @@ class UsersController < ApplicationController
 
   def update
     @user = User.find(params[:id])
-    @user.update(user_params)
-    redirect_to user_path(@user.id)
+    if @user.update(user_params)
+      flash[:notice] = "Book has successfully been updated."
+      redirect_to user_path(@user.id) # .idはいらないんじゃないか
+    else
+      render 'edit'
+    end
   end
 
   private

@@ -14,45 +14,53 @@ class BooksController < ApplicationController
         @book = Book.new(book_params)
         @book.user_id = current_user.id
         if @book.save
-            flash[:notice] = "Book was successfully created."
+            flash[:notice] = "Book has successfully been created."
             redirect_to book_path(@book.id)
+                # redirect_to @book, notice: "ここにメッセージ" でもOK!
         else
-            render :new
+            @books = Book.all
+            render 'index'
+                # render :new　　　ではない！
         end
     end
 
     def index
         @user = current_user
-        @books = Book.page(params[:page]).reverse_order
         @book = Book.new
+        @books = Book.all
+        # kaminariを導入して、以下のようにすれば、リバースオーダーにもなる（逆順）
+        # @books = Book.page(params[:page]).reverse_order
     end
 
     def show
-        @user = User.find(params[:id])
         @book = Book.find(params[:id])
     end
 
     def edit
         @book = Book.find(params[:id])
+        # @user = User.find(params[:id]) 不要
     end
 
     def update
         @book = Book.find(params[:id])
-        @book.update(book_params)
-        flash[:notice] = "Book was successfully updated."
-        redirect_to book_path
+        if @book.update(book_params)
+            flash[:notice] = "Book has successfully been updated."
+            redirect_to book_path # @book
+        else
+            render 'edit'
+        end
     end
 
     def destroy
         @book = Book.find(params[:id])
         @book.destroy
-        flash[:notice] = "Book was successfully destroyed."
+        flash[:notice] = "Book has successfully been destroyed."
         redirect_to books_path
+        # redirect_to books_path, notice: "Book has successfully been destroyed." => 上の2行は左記でもOK
     end
 
     private
         def book_params
             params.require(:book).permit(:title, :introduction, :body)
         end
-
 end
