@@ -2,7 +2,7 @@
   <%= form_for(@book) do |f| %>
 
     <div class="field row">
-      <%= f.label :title, placeholder:"本のタイトル" %>
+      <%= f.label :title, autocomplete: 'off', placeholder:"本のタイトル" %>
       <%= f.text_field :title, class: "col-xs-12 book_title" %>
     </div>
 

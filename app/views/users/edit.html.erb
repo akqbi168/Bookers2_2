@@ -1,43 +1,26 @@
-<div style="padding-left: 30px">
-  <div style="line-height: 1.5em">
+<div class="container">
+  <h2>User info</h2>
 
-      <h2>User info</h2>
+  <%= form_for(@user) do |f| %>
 
-      <%= form_for(@user) do |f| %>
-      <div class="">
-        <label class="" for "">Name</label>
-        <%= f.text_field :name, autofocus: true, class:"", placeholder:"名前" %>
-      </div>
+    <div class="field">
+      <%= f.label :name %>
+      <%= f.text_field :name, class: "name" %>
+    </div>
 
-      <!-- 画像設定用 -->
-        <div class="form-group has-icon">
-          <div class="user-edit-image">
-            <%= attachment_image_tag @user, :profile_image, :fill, 60, 60, class: "img-circle pull-left profile-thumb", fallback: "no_image.jpg"%>
-          </div>
-          <label class="control-label sr-only" for="inputEmail">ProfileImage</label>
-          <%= f.attachment_field :profile_image, placeholder: "プロフィール画像", class: "user-edit-form" %>
-        </div>
+    <div class="field">
+      <%= f.label :image %>
+      <%= f.attachment_field :profile_image, class: "user_image" %>
+    </div>
 
-      <div class="">
-        <label class="" for "">Introduction</label>
-        <%= f.text_field :name, autofocus: true, class:"" %>
-      </div>
+    <div class="field">
+      <%= f.label :introduction %>
+      <%= f.text_area :introduction, class: "introduction" %>
+    </div>
 
-      <div class="actions">
-        <input type="submit" value="Update User" data-disable-with="Update User" />
-      </div>
-        <input type="submit" value="Update User"><%= link_to "Update User", user_path %></button>
+    <div class="actions">
+      <%= f.submit %>
+    </div>
 
-
-      <% end %>
-
-
-
-
-
-
-
-  </div>
+  <% end %>
 </div>
-
-
