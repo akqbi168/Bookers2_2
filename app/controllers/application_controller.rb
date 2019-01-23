@@ -10,12 +10,13 @@ class ApplicationController < ActionController::Base
     devise_parameter_sanitizer.permit(:sign_up, keys: [:name, :email])
   end
 
-  #sign in後のredirect先変更
-  # def after_sign_in_path_for(resource)
-  #   user_path(resource)
-  # end
+  # sign_in後のリダイレクト先
+  def after_sign_in_path_for(resource)
+    # flash[:notice] = "Signed_in successfully"
+    user_path(resource)
+  end
 
-  #sign out後のredirect先変更
+  # sign_out後のリダイレクト先
   # def after_sign_out_path_for(resource)
   #   root_path
   # end

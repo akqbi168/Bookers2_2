@@ -3,7 +3,7 @@
     <div class="col-xs-3">
 
       <h2>User info</h2>
-      <%= render 'users/info', user: @user,now: '',books: @books %>
+      <%= render 'users/info', user: current_user %>
 
       <h2>New book</h2>
       <%= render 'books/newbook', book: @book %>
@@ -20,6 +20,7 @@
             <th></th>
             <th>Title</th>
             <th>Opinion</th>
+            <!-- <th colspan="2"></th> -->
           </tr>
         </thead>
 
@@ -28,17 +29,16 @@
             <tr>
               <td>
                 <%= link_to(book.user) do %>
-                <%= attachment_image_tag(book.user, :profile_image, :fill, 50, 50, fallback: "no_image.jpg", class: "") %>
+                <%= attachment_image_tag(book.user, :profile_image, :fill, 50, 50, fallback: "no_image.jpg") %>
                 <% end %>
               </td>
               <td>
-                <%= link_to book.title,book, class: "book_#{book.id}" %>
+                <%= link_to book.title, book, class: "book_#{book.id}" %>
               </td>
               <td>
                 <%= book.body %>
               </td>
             </tr>
-
           <% end %>
         </tbody>
       </table>
