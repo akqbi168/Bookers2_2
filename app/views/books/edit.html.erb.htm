@@ -1,77 +1,19 @@
-<!DOCTYPE html>
-<!-- saved from url=(0052)https://bookers-level2.herokuapp.com/books/3591/edit -->
-<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-    
-    
+<div class="container">
+  <div class='row'>
+    <div class='col-md-6 col-md-offset-3'>
+      <h1>Editing Book</h1>
 
 
-    <link rel="stylesheet" media="all" href="./edit.html.erb_files/application-945628f9f95377705c9108ec9a9704e6f6ffa0767c02e34400d75b5be64fc1b7.css" data-turbolinks-track="reload">
-    <script src="./edit.html.erb_files/application-11e027fe501efa6924bd87aa8f6ef7436fd1539022b412029c4a223dec9664f8.js" data-turbolinks-track="reload"></script>
-  <title>Bookers</title><meta name="csrf-param" content="authenticity_token"><meta name="csrf-token" content="2aE4j4L8c8NhrOH6otDMGcKV0TWyv9ZHcqURwGaMffPjQuTlXuU/5Jb28OH46WCC171XWCIS8UVnQSl/oSfLBw=="></head>
 
-  <body>
-    <header class="navbar navbar-fixed-top navbar-inverse">
-  <div class="container">
-    <nav class="nav navbar-nav navbar-left">
-      <span>Bookers</span>
-    </nav>
-    <nav>
-      <ul class="nav navbar-nav navbar-right">
-          <li><a class="glyphicon glyphicon-home home" href="https://bookers-level2.herokuapp.com/users/1903"> Home</a></li>
-          <li><a class="glyphicon glyphicon-user users" href="https://bookers-level2.herokuapp.com/users"> Users</a></li>
-          <li><a class="glyphicon glyphicon-book books" href="https://bookers-level2.herokuapp.com/books"> Books</a></li>
-          <li><a class="glyphicon glyphicon-log-out logout" rel="nofollow" data-method="delete" href="https://bookers-level2.herokuapp.com/users/sign_out"> logout</a></li>
-      </ul>
-    </nav>
-  </div>
-</header>
 
-  	<div class="body">
-      <div class="container">
-        
-        
-        <p id="notice"></p>
-      
-      	<div class="row">
-	<div class="col-md-6 col-md-offset-3">
-		<h1>Editing Book</h1>
-  <!-- <div class='col-md-3 col-md-offset-3'>
-  </div> -->
-  	
-		<form class="edit_book" id="edit_book_3591" action="https://bookers-level2.herokuapp.com/books/3591" accept-charset="UTF-8" method="post"><input name="utf8" type="hidden" value="✓"><input type="hidden" name="_method" value="patch"><input type="hidden" name="authenticity_token" value="XzdrMkHycnuStlza8tao3rupsoU71oeThpTNaqgbFeFnjD/5BB/OK3COd45hsOHAa+fqfNVrgJQtTE/AfXtNKA==">
-  <div class="field row">
-    <label for="book_title">Title</label>
-    <input class="col-xs-12 book_title" type="text" value="sample7" name="book[title]" id="book_title">
-  </div>
 
-  <div class="field row">
-    <label for="book_opinion">Opinion</label>
-    <textarea class="col-xs-12 book_body" name="book[body]" id="book_body">sample</textarea>
-  </div>
 
-  <div class="actions row">
-    <input type="submit" name="commit" value="Update Book" class="btn btn-primary col-xs-12" data-disable-with="Update Book">
-  </div>
-</form>
-		<a class="book_3591" href="https://bookers-level2.herokuapp.com/books/3591">Show</a> |
-		<a class="back" href="https://bookers-level2.herokuapp.com/books">Back</a>
+        <%= render 'form', book: @book %>
+
+        <%= link_to 'Show', @book, class: "book_#{@book.id}" %>
+         | <%= link_to 'Back', books_path, class: "back" %>
+
     </div>
-    <div class="col-md-3"></div>
+    <!-- <div class='col-md-3'></div> -->
+  </div>
 </div>
-      </div>
-    </div>
-
-    <footer>
-  <div class="container">
-  	<div class="row">
-    	<div class="col-xs-3 col-xs-offset-9">
-    		<p>CopyRight Infratop.inc</p>
-    	</div>
-    </div>
-  </div>
-</footer>
-
-
-  
-
-</body></html>
