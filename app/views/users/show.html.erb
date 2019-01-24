@@ -33,7 +33,8 @@
                   <%= attachment_image_tag(book.user, :profile_image, fallback: "no_image.jpg", size: '50x50') %>
                   <% end %>
                 </td>
-                <td><%= link_to book.title,book, class: "book_#{book.id}" %></td>
+                    <!-- <td><%#= link_to book.title, book, class: "book_#{book.id}" %></td> -->
+                <td><%= link_to book.title, book_path(book.id), class: "book_#{book.id}" %></td>
                 <td><%= book.body %></td>
               </tr>
             <% end %>
