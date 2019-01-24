@@ -47,6 +47,22 @@
         </div>
       <% end %>
 
+      <!-- エラーメッセージの入力 -->
+      <% if @book.present? %>
+        <% if @book.errors.any? %>
+          <div id="error_explanation" class="alert alert-danger">
+            <h3><%= pluralize(@book.errors.count, "error") %> occurred - could not be saved</h3>
+            <strong>
+              <ul>
+                <% @book.errors.full_messages.each do |message| %>
+                  <li><%= message %></li>
+                <% end %>
+              </ul>
+            </strong>
+          </div>
+        <% end %>
+      <% end %>
+
       <!-- 本文の読み込み -->
       <%= yield %>
 

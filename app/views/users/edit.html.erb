@@ -1,10 +1,11 @@
 <div class="container">
   <h2>User info</h2>
 
-      <% if @user.errors.any? %>
-      <div class="alert-danger">
+    <!-- エラーメッセージの入力 -->
+    <% if @user.errors.any? %>
+      <div id="error_explanation" class="alert alert-danger">
         <strong>
-          <p><%= @user.errors.count %> error: cannot be saved</p>
+          <h3><%= pluralize(@user.errors.count, "error") %> occurred - could not be saved</h3>
           <ul>
             <% @user.errors.full_messages.each do |message| %>
             <li><%= message %></li>

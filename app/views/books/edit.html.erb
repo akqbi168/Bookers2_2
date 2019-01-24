@@ -3,18 +3,20 @@
     <div class='col-md-6 col-md-offset-3'>
       <h1>Editing Book</h1>
 
-      <% if @book.errors.any? %>
-        <div class="alert-danger">
-          <strong>
-            <p><%= @book.errors.count %> error: cannot be saved</p>
-            <ul>
-              <% @book.errors.full_messages.each do |message| %>
-                <li><%= message %></li>
-              <% end %>
-            </ul>
-          </strong>
-        </div>
-      <% end %>
+      <!-- layouts/application.html.erb で設定済みなのでコメントアウト
+        <% if @book.errors.any? %>
+          <div class="alert-danger">
+            <strong>
+              <p><%= @book.errors.count %> error: cannot be saved</p>
+              <ul>
+                <% @book.errors.full_messages.each do |message| %>
+                  <li><%= message %></li>
+                <% end %>
+              </ul>
+            </strong>
+          </div>
+        <% end %>
+       -->
 
       <%= render 'books/newbook', book: @book %>
 
