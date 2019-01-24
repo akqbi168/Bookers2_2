@@ -12,13 +12,14 @@ class ApplicationController < ActionController::Base
 
   # sign_in後のリダイレクト先
   def after_sign_in_path_for(resource)
-    # flash[:notice] = "Signed_in successfully"
+    flash[:notice] = "You have successfully logged in."
     user_path(resource)
   end
 
   # sign_out後のリダイレクト先
-  # def after_sign_out_path_for(resource)
-  #   root_path
-  # end
+  def after_sign_out_path_for(resource)
+    flash[:notice] = "You have successfully logged out."
+    root_path
+  end
 
 end
